@@ -2,11 +2,11 @@ import sys
 
 
 class Productcatalog:
-    def __init__(self,name,price,description,SKU):
+    def __init__(self,name,price,description,sku):
         self.name=name
         self.price=price
         self.descrption=description
-        self.SKU=SKU
+        self.sku=sku
 
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Productcatalog:
             f"Product Name: {self.name}\n"
             f"Price: {self.price}\n"
             f"Description: {self.descrption}\n"
-            f"SKU: {self.SKU}\n"
+            f"sku: {self.sku}\n"
             
 
         )
@@ -133,21 +133,21 @@ while choice=="y":
     for item in productList:
         print(item)
 
-    chooseItem=int(input("""
+    chooseItem=input("""
         Enter "1" for First Product
         Enter "2" for Second Product
         Enter "3" for Third Product
-        Select Product: """))
+        Select Product: """)
 
     
 
-    if chooseItem==1:
+    if chooseItem=="1":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product1,chooseQty)
-    elif chooseItem==2:
+    elif chooseItem=="2":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product2,chooseQty)
-    elif chooseItem==3:
+    elif chooseItem=="3":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product3,chooseQty)
 
@@ -163,15 +163,15 @@ while choice=="y":
         delChoice=input("Do  you want delete any items(y/n) ?")
 
         while delChoice=="y":
-            delItem=int(input("\n Select items to delete according to the number system as above \n"))
+            delItem=input("\n Select items to delete according to the number system as above \n")
 
-            if delItem==1:
+            if delItem=="1":
                 cart.removeItem(product1)
 
-            elif delItem==2:
+            elif delItem=="2":
                 cart.removeItem(product2)
 
-            elif delItem==3:
+            elif delItem=="3":
                 cart.removeItem(product3)
             else:
                 print("Wrong Input")
@@ -200,12 +200,12 @@ placeOrder.order_details()
 
 while placeOrder.order_status=="Pending":
 
-    order_choice=int(input("Press 1 to confirm order Or Press 2 to Cancel order "))
+    order_choice=input("Press 1 to confirm order Or Press 2 to Cancel order ")
 
-    if order_choice==1:
+    if order_choice=="1":
         placeOrder.place_order()
 
-    elif order_choice==2:
+    elif order_choice=="2":
         placeOrder.cancel_order()
     else:
         print("Wrong input")
