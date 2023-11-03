@@ -144,18 +144,25 @@ while choice=="y":
     if chooseItem=="1":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product1,chooseQty)
+        print("\nProducts Added:")
+        print(cart)
+
     elif chooseItem=="2":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product2,chooseQty)
+        print("\nProducts Added:")
+        print(cart)
+
     elif chooseItem=="3":
         chooseQty=int(input("\nSelect Quantity: "))
         cart.addItems(product3,chooseQty)
+        print("\nProducts Added:")
+        print(cart)
 
     else:
         print("No items selected \n")
 
-    print("\nProducts Added:")
-    print(cart)
+    
 
     #Code for deleting Product from cart
 
