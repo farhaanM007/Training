@@ -16,7 +16,6 @@ class Productcatalog:
             f"Description: {self.descrption}\n"
             f"sku: {self.sku}\n"
             
-
         )
     
 
@@ -40,6 +39,15 @@ class Shoppingcart:
             total+=item["product"].price * item["qty"]
 
         return total
+    
+    def ChangeQty(self,product,qty):
+        for item in self.items:
+            if item["product"]==product:
+                item["qty"]=qty
+            
+        
+        
+
             
 
     def __str__(self):
@@ -167,25 +175,76 @@ while choice=="y":
     #Code for deleting Product from cart
 
     if len(cart.items)>0:
-        delChoice=input("Do  you want delete any items(y/n) ?")
+        delChoice=input("Do  you want  update any items(y/n) ?")
 
         while delChoice=="y":
-            delItem=input("\n Select items to delete according to the number system as above \n")
 
-            if delItem=="1":
-                cart.removeItem(product1)
+            change_qty_choice=input("\n If you want to change quantity pressed 1 or if want to delete press 2: ")
 
-            elif delItem=="2":
-                cart.removeItem(product2)
+            if(change_qty_choice=="1"):
+                update_continue_choice="y"
+                while update_continue_choice=="y":
 
-            elif delItem=="3":
-                cart.removeItem(product3)
+                    change_qty=input("\n Select items to whose quantiyt has to be changed according to the number system as above: ")
+                    
+                    if change_qty=="1":
+                        qty=int(input("\nenter new quantity: "))
+                        if qty==0:
+                            cart.removeItem(product1)
+                        else:
+                            cart.ChangeQty(product1,qty)
+
+                    elif change_qty=="2":
+                        qty=int(input("\nenter new quantity: "))
+                        if qty==0:
+                            cart.removeItem(product2)
+                        else:
+                            cart.ChangeQty(product2,qty)
+
+                    elif change_qty=="3":
+                        qty=int(input("\nenter new quantity: "))
+                        if qty==0:
+                            cart.removeItem(product3)
+                        else:
+                            cart.ChangeQty(product3,qty)
+                    else:
+                        print("Wrong Input")
+
+                    print("\nItems in cart: \n")
+
+                    print(cart)
+
+                    update_continue_choice=input("do you want to continue(y/n)?")
+
+            elif(change_qty_choice=="2"):
+                del_choice="y"
+                while del_choice=="y":
+            
+                    delItem=input("\n Select items to delete according to the number system as above: ")
+
+                    if delItem=="1":
+                        cart.removeItem(product1)
+
+                    elif delItem=="2":
+                        cart.removeItem(product2)
+
+                    elif delItem=="3":
+                        cart.removeItem(product3)
+                    else:
+                        print("Wrong Input")
+
+                    print("item available in cart: \n")
+
+                    print(cart)
+
+                    del_choice=input("\n Do you want to delete anymore item?(y/n): ")
+
             else:
-                print("Wrong Input")
+                print("wrong input")
 
-            print(cart)
+            delChoice=input("\ndo you want to continue updating?(y/n): ")
 
-            delChoice=input("\n Do you want to delete anymore item?(y/n)\n")
+        
 
     print("\nProducts Added:")
     print(cart)
@@ -228,7 +287,6 @@ else:
 
 
     
-
 
 
 
