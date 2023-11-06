@@ -214,7 +214,7 @@ while choice=="y":
 
                     print(cart)
 
-                    update_continue_choice=input("do you want to continue(y/n)?")
+                    update_continue_choice=input("do you want to change quantity of products(y/n)?")
 
             elif(change_qty_choice=="2"):
                 del_choice="y"
